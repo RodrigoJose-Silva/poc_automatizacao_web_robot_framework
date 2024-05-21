@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.1 on win32)" generated="20240520 21:05:48.817" rpa="false" schemaversion="4">
+<suite id="s1" name="Tests" source="C:\Projetos\robot-alura\tests">
+<suite id="s1-s1" name="Login-Usuario" source="C:\Projetos\robot-alura\tests\login-usuario.robot">
+<test id="s1-s1-t1" name="CT Login 01 - Deve exibir mensagem de campos inválidos e obrigatórios" line="16">
+<kw name="Run Keywords" library="BuiltIn" type="SETUP">
+<arg>Home Page</arg>
+<arg>${URL_HOME_PAGE}</arg>
+<arg>AND</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${TITLE_HOME_PAGE}</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<kw name="Home Page" library="base">
+<arg>${URL_HOME_PAGE}</arg>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${EXPECTED_URL_HOME_PAGE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240520 21:05:49.468" level="INFO">${EXPECTED_URL_HOME_PAGE} = https://bugbank.netlify.app/</msg>
+<status status="PASS" starttime="20240520 21:05:49.467" endtime="20240520 21:05:49.468"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL_HOME_PAGE}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240520 21:05:49.471" level="INFO">Opening browser 'chrome' to base url 'https://bugbank.netlify.app/'.</msg>
+<msg timestamp="20240520 21:05:50.948" level="WARN">The chromedriver version (123.0.6312.122) detected in PATH at C:\Python312\Scripts\chromedriver.exe might not be compatible with the detected chrome version (124.0.6367.203); currently, chromedriver 124.0.6367.207 is recommended for chrome 124.*, so it is advised to delete the driver in PATH and retry</msg>
+<status status="PASS" starttime="20240520 21:05:49.469" endtime="20240520 21:05:55.913"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240520 21:05:55.913" endtime="20240520 21:05:56.091"/>
+</kw>
+<status status="PASS" starttime="20240520 21:05:49.466" endtime="20240520 21:05:56.091"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${TITLE_HOME_PAGE}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240520 21:05:56.092" endtime="20240520 21:05:56.179"/>
+</kw>
+<status status="PASS" starttime="20240520 21:05:49.466" endtime="20240520 21:05:56.179"/>
+</kw>
+<kw name="Dado que o usuario preecha o email" library="login">
+<arg>test</arg>
+<kw name="Informe Email Login" library="base">
+<arg>${EXPECTED_EMAIL_LOGIN}</arg>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${EXPECTED_EMAIL_LOGIN}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240520 21:05:56.182" level="INFO">${EXPECTED_EMAIL_LOGIN} = test</msg>
+<status status="PASS" starttime="20240520 21:05:56.182" endtime="20240520 21:05:56.183"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${INFORMAR_EMAIL}</arg>
+<arg>${EXPECTED_EMAIL_LOGIN}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240520 21:05:56.184" level="INFO">Typing text 'test' into text field 'xpath=//form[@class='style__ContainerFormLogin-sc-1wbjw6k-0 eTrcYr']//input[@placeholder='Informe seu e-mail']'.</msg>
+<status status="PASS" starttime="20240520 21:05:56.183" endtime="20240520 21:05:56.474"/>
+</kw>
+<status status="PASS" starttime="20240520 21:05:56.181" endtime="20240520 21:05:56.475"/>
+</kw>
+<status status="PASS" starttime="20240520 21:05:56.180" endtime="20240520 21:05:56.475"/>
+</kw>
+<kw name="E deixe a senha vazia" library="login">
+<arg>${EMPTY}</arg>
+<kw name="Informe Senha Login" library="base">
+<arg>${EXPECTED_SENHA_LOGIN}</arg>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${EXPECTED_SENHA_LOGIN}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240520 21:05:56.480" level="INFO">${EXPECTED_SENHA_LOGIN} = </msg>
+<status status="PASS" starttime="20240520 21:05:56.479" endtime="20240520 21:05:56.480"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${INFORMAR_SENHA}</arg>
+<arg>${EXPECTED_SENHA_LOGIN}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240520 21:05:56.482" level="INFO">Typing text '' into text field 'xpath=//form[@class='style__ContainerFormLogin-sc-1wbjw6k-0 eTrcYr']//input[@placeholder='Informe sua senha']'.</msg>
+<status status="PASS" starttime="20240520 21:05:56.480" endtime="20240520 21:05:56.654"/>
+</kw>
+<status status="PASS" starttime="20240520 21:05:56.478" endtime="20240520 21:05:56.654"/>
+</kw>
+<status status="PASS" starttime="20240520 21:05:56.476" endtime="20240520 21:05:56.654"/>
+</kw>
+<kw name="Quando usuario submeter o login" library="login">
+<kw name="Btn Acessar Login" library="base">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BTN_ACESSAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240520 21:05:56.656" level="INFO">Clicking button 'xpath=//button[normalize-space()='Acessar']'.</msg>
+<status status="PASS" starttime="20240520 21:05:56.656" endtime="20240520 21:05:56.788"/>
+</kw>
+<status status="PASS" starttime="20240520 21:05:56.655" endtime="20240520 21:05:56.789"/>
+</kw>
+<status status="PASS" starttime="20240520 21:05:56.655" endtime="20240520 21:05:56.789"/>
+</kw>
+<kw name="Entao devera exibir mensagem no campo de email" library="login">
+<arg>Formato inválido</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ALERT_FORMATO_IVALIDO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240520 21:05:56.796" endtime="20240520 21:05:56.894"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${ALERT_FORMATO_IVALIDO}</arg>
+<arg>${EXPECTED_ERROR_MSG-EMAIL}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20240520 21:05:56.897" level="INFO">Verifying element 'xpath=//*[@id="__next"]/div/div[2]/div/div[1]/form/div[1]/p' contains exact text 'Formato inválido'.</msg>
+<status status="PASS" starttime="20240520 21:05:56.894" endtime="20240520 21:05:56.967"/>
+</kw>
+<status status="PASS" starttime="20240520 21:05:56.795" endtime="20240520 21:05:56.968"/>
+</kw>
+<kw name="E devera exibir a mesagem no campo de senha" library="login">
+<arg>É campo obrigatório</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ALERT_INFORMAR_SENHA}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240520 21:05:56.970" endtime="20240520 21:05:57.046"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${ALERT_INFORMAR_SENHA}</arg>
+<arg>${EXPECTED_ERROR_MSG-SENHA}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20240520 21:05:57.048" level="INFO">Verifying element 'xpath=//*[@id="__next"]/div/div[2]/div/div[1]/form/div[2]/div/p' contains exact text 'É campo obrigatório'.</msg>
+<status status="PASS" starttime="20240520 21:05:57.046" endtime="20240520 21:05:57.094"/>
+</kw>
+<status status="PASS" starttime="20240520 21:05:56.969" endtime="20240520 21:05:57.094"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240520 21:05:57.095" endtime="20240520 21:05:59.454"/>
+</kw>
+<status status="PASS" starttime="20240520 21:05:49.464" endtime="20240520 21:05:59.455"/>
+</test>
+<doc>Nesse arquivo contem os cenarios de teste referente ao Login do usuario</doc>
+<status status="PASS" starttime="20240520 21:05:48.856" endtime="20240520 21:05:59.457"/>
+</suite>
+<suite id="s1-s2" name="Registrar-Usuario" source="C:\Projetos\robot-alura\tests\registrar-usuario.robot">
+<test id="s1-s2-t1" name="CT Cadastrar 01 - Deve registrar usuário com sucesso" line="15">
+<kw name="Run Keywords" library="BuiltIn" type="SETUP">
+<arg>Home Page</arg>
+<arg>${URL_HOME_PAGE}</arg>
+<arg>AND</arg>
+<arg>Cadastrar Usuario</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<kw name="Home Page" library="base">
+<arg>${URL_HOME_PAGE}</arg>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${EXPECTED_URL_HOME_PAGE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240520 21:05:59.505" level="INFO">${EXPECTED_URL_HOME_PAGE} = https://bugbank.netlify.app/</msg>
+<status status="PASS" starttime="20240520 21:05:59.505" endtime="20240520 21:05:59.506"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL_HOME_PAGE}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240520 21:05:59.507" level="INFO">Opening browser 'chrome' to base url 'https://bugbank.netlify.app/'.</msg>
+<msg timestamp="20240520 21:06:02.325" level="WARN">The chromedriver version (123.0.6312.122) detected in PATH at C:\Python312\Scripts\chromedriver.exe might not be compatible with the detected chrome version (124.0.6367.203); currently, chromedriver 124.0.6367.207 is recommended for chrome 124.*, so it is advised to delete the driver in PATH and retry</msg>
+<status status="PASS" starttime="20240520 21:05:59.506" endtime="20240520 21:06:06.870"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240520 21:06:06.870" endtime="20240520 21:06:07.108"/>
+</kw>
+<status status="PASS" starttime="20240520 21:05:59.503" endtime="20240520 21:06:07.108"/>
+</kw>
+<kw name="Cadastrar Usuario" library="base">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${REGISTRAR_USUARIO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240520 21:06:07.109" endtime="20240520 21:06:07.177"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${REGISTRAR_USUARIO}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240520 21:06:07.178" level="INFO">Clicking button 'xpath=//button[@class='style__ContainerButton-sc-1wsixal-0 ihdmxA button__child']'.</msg>
+<status status="PASS" starttime="20240520 21:06:07.177" endtime="20240520 21:06:07.361"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:07.109" endtime="20240520 21:06:07.361"/>
+</kw>
+<status status="PASS" starttime="20240520 21:05:59.503" endtime="20240520 21:06:07.362"/>
+</kw>
+<kw name="Dado que o usuario preecha o furmulário" library="registrar-usuario">
+<arg>test@test.com</arg>
+<arg>Test 1</arg>
+<arg>test123</arg>
+<arg>test123</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${PREENCHER_EMAIL}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240520 21:06:07.369" endtime="20240520 21:06:07.480"/>
+</kw>
+<kw name="Preencher Email" library="base">
+<arg>${EXPECTED_EMAIL}</arg>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${EXPECTED_EMAIL}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240520 21:06:07.483" level="INFO">${EXPECTED_EMAIL} = test@test.com</msg>
+<status status="PASS" starttime="20240520 21:06:07.482" endtime="20240520 21:06:07.483"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PREENCHER_EMAIL}</arg>
+<arg>${EXPECTED_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240520 21:06:07.485" level="INFO">Typing text 'test@test.com' into text field 'xpath=//form[@class='styles__ContainerFormRegister-sc-7fhc7g-0 keVbpY']//input[@placeholder='Informe seu e-mail']'.</msg>
+<status status="PASS" starttime="20240520 21:06:07.483" endtime="20240520 21:06:07.793"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:07.480" endtime="20240520 21:06:07.793"/>
+</kw>
+<kw name="Preencher Nome" library="base">
+<arg>${EXPECTED_NOME}</arg>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${EXPECTED_NOME}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240520 21:06:07.794" level="INFO">${EXPECTED_NOME} = Test 1</msg>
+<status status="PASS" starttime="20240520 21:06:07.794" endtime="20240520 21:06:07.794"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PREENCHER_NOME}</arg>
+<arg>${EXPECTED_NOME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240520 21:06:07.795" level="INFO">Typing text 'Test 1' into text field 'xpath=//input[@type="name"]'.</msg>
+<status status="PASS" starttime="20240520 21:06:07.795" endtime="20240520 21:06:08.057"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:07.793" endtime="20240520 21:06:08.057"/>
+</kw>
+<kw name="Preencher Senha" library="base">
+<arg>${EXPECTED_SENHA}</arg>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${EXPECTED_SENHA}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240520 21:06:08.059" level="INFO">${EXPECTED_SENHA} = test123</msg>
+<status status="PASS" starttime="20240520 21:06:08.059" endtime="20240520 21:06:08.060"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PREENCHER_SENHA}</arg>
+<arg>${EXPECTED_SENHA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240520 21:06:08.061" level="INFO">Typing text 'test123' into text field 'xpath=//form[@class='styles__ContainerFormRegister-sc-7fhc7g-0 keVbpY']//input[@placeholder='Informe sua senha']'.</msg>
+<status status="PASS" starttime="20240520 21:06:08.060" endtime="20240520 21:06:08.420"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:08.058" endtime="20240520 21:06:08.420"/>
+</kw>
+<kw name="Preencher Confirmar Senha" library="base">
+<arg>${EXPECTED_CONFIRMAR_SENHA}</arg>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${EXPECTED_CONFIRMAR_SENHA}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240520 21:06:08.423" level="INFO">${EXPECTED_CONFIRMAR_SENHA} = test123</msg>
+<status status="PASS" starttime="20240520 21:06:08.422" endtime="20240520 21:06:08.423"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CONFIRMAR_SENHA}</arg>
+<arg>${EXPECTED_CONFIRMAR_SENHA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240520 21:06:08.424" level="INFO">Typing text 'test123' into text field 'xpath=//input[@placeholder='Informe a confirmação da senha']'.</msg>
+<status status="PASS" starttime="20240520 21:06:08.423" endtime="20240520 21:06:08.682"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:08.421" endtime="20240520 21:06:08.682"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:07.368" endtime="20240520 21:06:08.682"/>
+</kw>
+<kw name="Quando usuario submeter o cadastro" library="registrar-usuario">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BTN_CADASTRAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240520 21:06:08.686" level="INFO">Clicking button 'xpath=//button[@type="submit"][contains(text(), "Cadastrar")]'.</msg>
+<status status="PASS" starttime="20240520 21:06:08.684" endtime="20240520 21:06:08.961"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:08.683" endtime="20240520 21:06:08.961"/>
+</kw>
+<kw name="Entao devera exibir o modal de confirmacao da criacao da conta" library="registrar-usuario">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CADASTRO_CONFIRMADO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240520 21:06:08.977" endtime="20240520 21:06:09.127"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${CADASTRO_CONFIRMADO}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20240520 21:06:09.203" level="INFO">Element 'id=modalText' is displayed.</msg>
+<status status="PASS" starttime="20240520 21:06:09.127" endtime="20240520 21:06:09.203"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:08.976" endtime="20240520 21:06:09.204"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240520 21:06:09.214" endtime="20240520 21:06:11.829"/>
+</kw>
+<status status="PASS" starttime="20240520 21:05:59.501" endtime="20240520 21:06:11.831"/>
+</test>
+<test id="s1-s2-t2" name="CT Cadastrar 02 - Deve exibir informações de campos obrigatórios de cadastro não preenchido corretamente" line="23">
+<kw name="Run Keywords" library="BuiltIn" type="SETUP">
+<arg>Home Page</arg>
+<arg>${URL_HOME_PAGE}</arg>
+<arg>AND</arg>
+<arg>Cadastrar Usuario</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<kw name="Home Page" library="base">
+<arg>${URL_HOME_PAGE}</arg>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${EXPECTED_URL_HOME_PAGE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240520 21:06:11.838" level="INFO">${EXPECTED_URL_HOME_PAGE} = https://bugbank.netlify.app/</msg>
+<status status="PASS" starttime="20240520 21:06:11.837" endtime="20240520 21:06:11.838"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL_HOME_PAGE}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240520 21:06:11.840" level="INFO">Opening browser 'chrome' to base url 'https://bugbank.netlify.app/'.</msg>
+<msg timestamp="20240520 21:06:14.312" level="WARN">The chromedriver version (123.0.6312.122) detected in PATH at C:\Python312\Scripts\chromedriver.exe might not be compatible with the detected chrome version (124.0.6367.203); currently, chromedriver 124.0.6367.207 is recommended for chrome 124.*, so it is advised to delete the driver in PATH and retry</msg>
+<status status="PASS" starttime="20240520 21:06:11.838" endtime="20240520 21:06:19.705"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240520 21:06:19.705" endtime="20240520 21:06:19.966"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:11.836" endtime="20240520 21:06:19.967"/>
+</kw>
+<kw name="Cadastrar Usuario" library="base">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${REGISTRAR_USUARIO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240520 21:06:19.968" endtime="20240520 21:06:20.116"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${REGISTRAR_USUARIO}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240520 21:06:20.118" level="INFO">Clicking button 'xpath=//button[@class='style__ContainerButton-sc-1wsixal-0 ihdmxA button__child']'.</msg>
+<status status="PASS" starttime="20240520 21:06:20.116" endtime="20240520 21:06:20.380"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:19.967" endtime="20240520 21:06:20.381"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:11.836" endtime="20240520 21:06:20.381"/>
+</kw>
+<kw name="Dado que o usuario preecha o furmulário" library="registrar-usuario">
+<arg>${EMPTY}</arg>
+<arg>Test Invalid</arg>
+<arg>${EMPTY}</arg>
+<arg>${EMPTY}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${PREENCHER_EMAIL}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240520 21:06:20.395" endtime="20240520 21:06:20.492"/>
+</kw>
+<kw name="Preencher Email" library="base">
+<arg>${EXPECTED_EMAIL}</arg>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${EXPECTED_EMAIL}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240520 21:06:20.494" level="INFO">${EXPECTED_EMAIL} = </msg>
+<status status="PASS" starttime="20240520 21:06:20.493" endtime="20240520 21:06:20.494"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PREENCHER_EMAIL}</arg>
+<arg>${EXPECTED_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240520 21:06:20.496" level="INFO">Typing text '' into text field 'xpath=//form[@class='styles__ContainerFormRegister-sc-7fhc7g-0 keVbpY']//input[@placeholder='Informe seu e-mail']'.</msg>
+<status status="PASS" starttime="20240520 21:06:20.494" endtime="20240520 21:06:20.739"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:20.492" endtime="20240520 21:06:20.740"/>
+</kw>
+<kw name="Preencher Nome" library="base">
+<arg>${EXPECTED_NOME}</arg>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${EXPECTED_NOME}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240520 21:06:20.742" level="INFO">${EXPECTED_NOME} = Test Invalid</msg>
+<status status="PASS" starttime="20240520 21:06:20.741" endtime="20240520 21:06:20.742"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PREENCHER_NOME}</arg>
+<arg>${EXPECTED_NOME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240520 21:06:20.743" level="INFO">Typing text 'Test Invalid' into text field 'xpath=//input[@type="name"]'.</msg>
+<status status="PASS" starttime="20240520 21:06:20.742" endtime="20240520 21:06:21.086"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:20.740" endtime="20240520 21:06:21.086"/>
+</kw>
+<kw name="Preencher Senha" library="base">
+<arg>${EXPECTED_SENHA}</arg>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${EXPECTED_SENHA}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240520 21:06:21.089" level="INFO">${EXPECTED_SENHA} = </msg>
+<status status="PASS" starttime="20240520 21:06:21.088" endtime="20240520 21:06:21.089"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PREENCHER_SENHA}</arg>
+<arg>${EXPECTED_SENHA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240520 21:06:21.091" level="INFO">Typing text '' into text field 'xpath=//form[@class='styles__ContainerFormRegister-sc-7fhc7g-0 keVbpY']//input[@placeholder='Informe sua senha']'.</msg>
+<status status="PASS" starttime="20240520 21:06:21.089" endtime="20240520 21:06:21.331"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:21.087" endtime="20240520 21:06:21.332"/>
+</kw>
+<kw name="Preencher Confirmar Senha" library="base">
+<arg>${EXPECTED_CONFIRMAR_SENHA}</arg>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${EXPECTED_CONFIRMAR_SENHA}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240520 21:06:21.334" level="INFO">${EXPECTED_CONFIRMAR_SENHA} = </msg>
+<status status="PASS" starttime="20240520 21:06:21.333" endtime="20240520 21:06:21.334"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CONFIRMAR_SENHA}</arg>
+<arg>${EXPECTED_CONFIRMAR_SENHA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240520 21:06:21.338" level="INFO">Typing text '' into text field 'xpath=//input[@placeholder='Informe a confirmação da senha']'.</msg>
+<status status="PASS" starttime="20240520 21:06:21.334" endtime="20240520 21:06:21.567"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:21.332" endtime="20240520 21:06:21.567"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:20.389" endtime="20240520 21:06:21.567"/>
+</kw>
+<kw name="Quando usuario submeter o cadastro" library="registrar-usuario">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BTN_CADASTRAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240520 21:06:21.571" level="INFO">Clicking button 'xpath=//button[@type="submit"][contains(text(), "Cadastrar")]'.</msg>
+<status status="PASS" starttime="20240520 21:06:21.569" endtime="20240520 21:06:21.772"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:21.568" endtime="20240520 21:06:21.772"/>
+</kw>
+<kw name="Entao devera exibir mensagem de campos obrigatorio no email" library="registrar-usuario">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ALERT_PREENCHER_EMAIL}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240520 21:06:21.777" endtime="20240520 21:06:21.853"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${ALERT_PREENCHER_EMAIL}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20240520 21:06:21.901" level="INFO">Element 'xpath=//body/div[@id='__next']/div[@class='pages__Background-sc-1ee1f2s-0 frRieb']/div[@class='pages__FormBackground-sc-1ee1f2s-2 jNpkvU']/div[@class='pages__Wrapper-sc-1ee1f2s-3 bRDVgF']/div[@class='card__register']/form[@class='styles__ContainerFormRegister-sc-7fhc7g-0 keVbpY']/div[@class='style__ContainerFieldInput-sc-s3e9ea-0 kOeYBn input__child']/p[1]' is displayed.</msg>
+<status status="PASS" starttime="20240520 21:06:21.854" endtime="20240520 21:06:21.901"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:21.776" endtime="20240520 21:06:21.902"/>
+</kw>
+<kw name="E devera exibir mensagem de campos obrigatorio na senha" library="registrar-usuario">
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${ALERT_PREENCHER_SENHA}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20240520 21:06:21.979" level="INFO">Element 'xpath=//div[4]//div[1]//p[1]' is displayed.</msg>
+<status status="PASS" starttime="20240520 21:06:21.904" endtime="20240520 21:06:21.979"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:21.903" endtime="20240520 21:06:21.979"/>
+</kw>
+<kw name="E devera exibir mensagem de campos obrigatorio na confirmacao da senha" library="registrar-usuario">
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${ALERT_CONFIRMAR_SENHA}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20240520 21:06:22.065" level="INFO">Element 'xpath=//div[5]//div[1]//p[1]' is displayed.</msg>
+<status status="PASS" starttime="20240520 21:06:21.982" endtime="20240520 21:06:22.065"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:21.981" endtime="20240520 21:06:22.065"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240520 21:06:22.067" endtime="20240520 21:06:25.111"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:11.834" endtime="20240520 21:06:25.114"/>
+</test>
+<test id="s1-s2-t3" name="CT Cadastrar 03 - Deve registrar usuário com sucesso" line="33">
+<kw name="Run Keywords" library="BuiltIn" type="SETUP">
+<arg>Home Page</arg>
+<arg>${URL_HOME_PAGE}</arg>
+<arg>AND</arg>
+<arg>Cadastrar Usuario</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<kw name="Home Page" library="base">
+<arg>${URL_HOME_PAGE}</arg>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${EXPECTED_URL_HOME_PAGE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240520 21:06:25.130" level="INFO">${EXPECTED_URL_HOME_PAGE} = https://bugbank.netlify.app/</msg>
+<status status="PASS" starttime="20240520 21:06:25.125" endtime="20240520 21:06:25.131"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL_HOME_PAGE}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240520 21:06:25.136" level="INFO">Opening browser 'chrome' to base url 'https://bugbank.netlify.app/'.</msg>
+<msg timestamp="20240520 21:06:26.894" level="WARN">The chromedriver version (123.0.6312.122) detected in PATH at C:\Python312\Scripts\chromedriver.exe might not be compatible with the detected chrome version (124.0.6367.203); currently, chromedriver 124.0.6367.207 is recommended for chrome 124.*, so it is advised to delete the driver in PATH and retry</msg>
+<status status="PASS" starttime="20240520 21:06:25.132" endtime="20240520 21:06:41.334"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240520 21:06:41.335" endtime="20240520 21:06:41.464"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:25.124" endtime="20240520 21:06:41.464"/>
+</kw>
+<kw name="Cadastrar Usuario" library="base">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${REGISTRAR_USUARIO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240520 21:06:41.465" endtime="20240520 21:06:41.514"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${REGISTRAR_USUARIO}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240520 21:06:41.515" level="INFO">Clicking button 'xpath=//button[@class='style__ContainerButton-sc-1wsixal-0 ihdmxA button__child']'.</msg>
+<status status="PASS" starttime="20240520 21:06:41.515" endtime="20240520 21:06:41.678"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:41.464" endtime="20240520 21:06:41.678"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:25.123" endtime="20240520 21:06:41.678"/>
+</kw>
+<kw name="Dado que o usuario preecha o furmulário" library="registrar-usuario">
+<arg>test@test.com</arg>
+<arg>Test 1</arg>
+<arg>test123</arg>
+<arg>test1234</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${PREENCHER_EMAIL}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240520 21:06:41.682" endtime="20240520 21:06:41.748"/>
+</kw>
+<kw name="Preencher Email" library="base">
+<arg>${EXPECTED_EMAIL}</arg>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${EXPECTED_EMAIL}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240520 21:06:41.749" level="INFO">${EXPECTED_EMAIL} = test@test.com</msg>
+<status status="PASS" starttime="20240520 21:06:41.749" endtime="20240520 21:06:41.749"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PREENCHER_EMAIL}</arg>
+<arg>${EXPECTED_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240520 21:06:41.750" level="INFO">Typing text 'test@test.com' into text field 'xpath=//form[@class='styles__ContainerFormRegister-sc-7fhc7g-0 keVbpY']//input[@placeholder='Informe seu e-mail']'.</msg>
+<status status="PASS" starttime="20240520 21:06:41.749" endtime="20240520 21:06:41.994"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:41.748" endtime="20240520 21:06:41.994"/>
+</kw>
+<kw name="Preencher Nome" library="base">
+<arg>${EXPECTED_NOME}</arg>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${EXPECTED_NOME}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240520 21:06:41.996" level="INFO">${EXPECTED_NOME} = Test 1</msg>
+<status status="PASS" starttime="20240520 21:06:41.996" endtime="20240520 21:06:41.997"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PREENCHER_NOME}</arg>
+<arg>${EXPECTED_NOME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240520 21:06:41.997" level="INFO">Typing text 'Test 1' into text field 'xpath=//input[@type="name"]'.</msg>
+<status status="PASS" starttime="20240520 21:06:41.997" endtime="20240520 21:06:42.185"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:41.995" endtime="20240520 21:06:42.185"/>
+</kw>
+<kw name="Preencher Senha" library="base">
+<arg>${EXPECTED_SENHA}</arg>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${EXPECTED_SENHA}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240520 21:06:42.186" level="INFO">${EXPECTED_SENHA} = test123</msg>
+<status status="PASS" starttime="20240520 21:06:42.186" endtime="20240520 21:06:42.186"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PREENCHER_SENHA}</arg>
+<arg>${EXPECTED_SENHA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240520 21:06:42.187" level="INFO">Typing text 'test123' into text field 'xpath=//form[@class='styles__ContainerFormRegister-sc-7fhc7g-0 keVbpY']//input[@placeholder='Informe sua senha']'.</msg>
+<status status="PASS" starttime="20240520 21:06:42.186" endtime="20240520 21:06:42.368"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:42.185" endtime="20240520 21:06:42.369"/>
+</kw>
+<kw name="Preencher Confirmar Senha" library="base">
+<arg>${EXPECTED_CONFIRMAR_SENHA}</arg>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${EXPECTED_CONFIRMAR_SENHA}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240520 21:06:42.370" level="INFO">${EXPECTED_CONFIRMAR_SENHA} = test1234</msg>
+<status status="PASS" starttime="20240520 21:06:42.370" endtime="20240520 21:06:42.370"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CONFIRMAR_SENHA}</arg>
+<arg>${EXPECTED_CONFIRMAR_SENHA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240520 21:06:42.372" level="INFO">Typing text 'test1234' into text field 'xpath=//input[@placeholder='Informe a confirmação da senha']'.</msg>
+<status status="PASS" starttime="20240520 21:06:42.371" endtime="20240520 21:06:42.588"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:42.369" endtime="20240520 21:06:42.588"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:41.680" endtime="20240520 21:06:42.588"/>
+</kw>
+<kw name="Quando usuario submeter o cadastro" library="registrar-usuario">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BTN_CADASTRAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240520 21:06:42.591" level="INFO">Clicking button 'xpath=//button[@type="submit"][contains(text(), "Cadastrar")]'.</msg>
+<status status="PASS" starttime="20240520 21:06:42.589" endtime="20240520 21:06:42.884"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:42.589" endtime="20240520 21:06:42.884"/>
+</kw>
+<kw name="Entao devera exibir o modal de senhas divergentes" library="registrar-usuario">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ERROR_SENHA_DIVERGENTE}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240520 21:06:42.886" endtime="20240520 21:06:43.023"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${ERROR_SENHA_DIVERGENTE}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20240520 21:06:43.089" level="INFO">Element 'id=modalText' is displayed.</msg>
+<status status="PASS" starttime="20240520 21:06:43.023" endtime="20240520 21:06:43.089"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:42.885" endtime="20240520 21:06:43.089"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240520 21:06:43.091" endtime="20240520 21:06:45.704"/>
+</kw>
+<status status="PASS" starttime="20240520 21:06:25.119" endtime="20240520 21:06:45.705"/>
+</test>
+<doc>Nesse arquivo contem os cenarios de teste de Registrar usuario</doc>
+<status status="PASS" starttime="20240520 21:05:59.461" endtime="20240520 21:06:45.708"/>
+</suite>
+<status status="PASS" starttime="20240520 21:05:48.821" endtime="20240520 21:06:45.713"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Login-Usuario">Tests.Login-Usuario</stat>
+<stat pass="3" fail="0" skip="0" id="s1-s2" name="Registrar-Usuario">Tests.Registrar-Usuario</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20240520 21:05:50.948" level="WARN">The chromedriver version (123.0.6312.122) detected in PATH at C:\Python312\Scripts\chromedriver.exe might not be compatible with the detected chrome version (124.0.6367.203); currently, chromedriver 124.0.6367.207 is recommended for chrome 124.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg timestamp="20240520 21:06:02.325" level="WARN">The chromedriver version (123.0.6312.122) detected in PATH at C:\Python312\Scripts\chromedriver.exe might not be compatible with the detected chrome version (124.0.6367.203); currently, chromedriver 124.0.6367.207 is recommended for chrome 124.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg timestamp="20240520 21:06:14.312" level="WARN">The chromedriver version (123.0.6312.122) detected in PATH at C:\Python312\Scripts\chromedriver.exe might not be compatible with the detected chrome version (124.0.6367.203); currently, chromedriver 124.0.6367.207 is recommended for chrome 124.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg timestamp="20240520 21:06:26.894" level="WARN">The chromedriver version (123.0.6312.122) detected in PATH at C:\Python312\Scripts\chromedriver.exe might not be compatible with the detected chrome version (124.0.6367.203); currently, chromedriver 124.0.6367.207 is recommended for chrome 124.*, so it is advised to delete the driver in PATH and retry</msg>
+</errors>
+</robot>
